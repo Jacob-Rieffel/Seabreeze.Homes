@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q69XWFDYD0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q69XWFDYD0');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seabreeze Homes - Landing Page</title>
+    <style id="color-scheme">
+        /* Body Background Gradient */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: linear-gradient(to top, #005780 25%, #00aaff 75%, #d9f2ff);
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header img {
+            height: 128px; /* Adjusted height */
+        }
+
+        h1 {
+            position: relative;
+            align-items: center;
+        }
+
+        .highlight {
+            animation: glow 0.5s;
+        }
+
+        a {
+            text-decoration: none;
+            color: unset;
+            display: block;
+            flex: 1;
+            margin: 10px;
+            position: relative;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px #00e5ff;
+            }
+            100% {
+                box-shadow: 0 0 0px #00e5ff;
+            }
+        }
+
+        .spin-image {
+            position: relative;
+
+        }
+
+        @media (max-width: 1048px) {
+            .header img {
+                height: 100px; /* Smaller image for medium screens */
+            }
+
+            .header h1 {
+                font-size: 1.5em; /* Smaller font size */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header img {
+                height: 80px; /* Even smaller image for small screens */
+            }
+
+            .header h1 {
+                font-size: 1.2em; /* Smaller font size */
+            }
+
+        }
+
+
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #ffffff;
+            margin: 20px 0;
+        }
+
+        .spin-image {
+            width: 200px; /* Initial width of the spinning image */
+            height: auto;
+            animation: spin 2s ease-out 1;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(1080deg); /* 3 full rotations */
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <img src="images/sb.png" alt="Logo Left">
+        <h1>Coming Soon</h1>
+        <img src="images/exp.png" alt="Logo Right">
+    </div>
+
+    <img src="images/starfish.png" alt="Spinning Image" class="spin-image">
+
+    <footer>&copy; 2024 Seabreeze Homes And Land. All rights reserved. <a href="ImageAttributionLinks.html">Images</a></footer> <!--Attributing authors of images and avatars. Thanks.-->
+
+    <script>
+        // JavaScript to repeat the spinning animation after it stops
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const spinImage = document.querySelector('.spin-image');
+            spinImage.addEventListener('animationend', () => {
+                setTimeout(() => {
+                    spinImage.style.animation = 'none';
+                    // Trigger reflow to restart the animation
+                    void spinImage.offsetWidth;
+                    spinImage.style.animation = 'spin 2s ease-out 1';
+                }, 250); // Pause for 250 ms before restarting
+            });
+        });
+    </script>
+</body>
+</html>

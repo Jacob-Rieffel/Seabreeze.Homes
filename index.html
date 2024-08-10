@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q69XWFDYD0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q69XWFDYD0');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seabreeze Homes - Landing Page</title>
+    <style id="color-scheme">
+        /* Body Background Gradient */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            background: linear-gradient(to top, #005780 25%, #00aaff 75%, #d9f2ff);
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header img {
+            height: 128px; /* Adjusted height */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: calc(100% - 100px);
+            margin: 40px 50px;
+            max-width: 1200px;
+            flex: 1;
+            position: relative;
+        }
+
+        a {
+            text-decoration: none;
+            color: unset;
+            display: block;
+            flex: 1;
+            margin: 10px;
+            position: relative;
+        }
+
+        /* Box Background Gradient */
+        .box {
+            text-align: center;
+            border: 2px solid #333;
+            /* background: linear-gradient(to bottom, #1f3c88, #1d73b2, #59a3d9); */
+            background: linear-gradient(to bottom, #f3e9d2, #e3d3b0, #d1b898, #b89e70, #9c7a43);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            height: 150px; /* Fixed height for the boxes */
+            border-top-left-radius: 200px;
+            border-top-right-radius: 200px;
+            overflow: hidden;
+        }
+
+        .box:after {
+            content: ''; /* Creates an empty pseudo-element */
+            position: absolute; /* Position it relative to the parent element */
+            left: 0;
+            right: 0;
+            bottom: -15px; /* Adjust this value to control the shadow's position */
+            height: 15px; /* Adjust this value to control the shadow's height */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add the shadow effect */
+            z-index: -2; /* Ensure the shadow appears behind the element */
+        }
+
+        .box h1 { 
+            margin-bottom: 10px;
+            color: #ffffff;
+            position: absolute;
+            top: -60px; /* Adjust position to float above the box */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .box p {
+            padding: 35px 25px 0px 25px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1.5rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 0 #000, /* Outline effect */
+                 -1px -1px 0 #000, 
+                 1px -1px 0 #000, 
+                 -1px 1px 0 #000;
+           /* -webkit-text-stroke: 1px black; Black outline that doesn't work on android. */ 
+            z-index: 1;
+        }
+
+        .box:hover {
+            box-shadow: 0 0 20px #00e5ff;
+        }
+
+        .highlight {
+            animation: glow 0.5s;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px #00e5ff;
+            }
+            100% {
+                box-shadow: 0 0 0px #00e5ff;
+            }
+        }
+
+        .palm-tree-left, .palm-tree-right {
+            position: absolute;
+            width: 100px; /* Adjust size as needed */
+            height: 120px; /* Adjust size as needed */
+            top: -30px; /* Adjust to position above the box */
+        }
+
+        .palm-tree-left {
+            left: 0px; /* Adjust to position to the left of the box */
+            transform: rotate(-20deg);
+        }
+
+        .palm-tree-right {
+            transform: scaleX(-1) rotate(-20deg); /* Mirrors palm tree image and rotates it */
+            right: 0px; /* Adjust to position to the right of the box */
+        }
+
+        .ball {
+            width: 64px;
+            height: 64px;
+            background: url(images/beach-ball.png) no-repeat center center;
+            background-size: contain;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .trail {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(0, 229, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @media (max-width: 1048px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+                margin: 0 40px;
+            }
+
+            a {
+                width: 100%;
+                margin: 20px 0;
+                box-sizing: border-box;
+                height: auto; /* Adjust height for smaller screens */
+            }
+        }
+
+        @media (max-width: 1048px) {
+            .ball {
+                width: 48px;
+                height: 48px;
+            }
+
+            .box a {
+                margin-bottom: none;
+            }
+
+            .box:after {
+                content: none; /* Ensure removal of the pseudo-element shadow */
+            }
+
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+                margin: 0 20px;
+                
+            }
+
+
+            a {
+                width: 80%;
+                margin: 20px 0;
+                box-sizing: border-box;
+                height: auto; /* Adjust height for smaller screens */
+            }
+
+            .box {
+                max-height: 100px;
+            }
+
+            .header img {
+                height: 80px; /* Adjusted height */
+            }
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: #ffffff;
+            margin: 20px 0;
+        } 
+
+        @media (max-width: 500px) {
+            .palm-tree-left, .palm-tree-right {
+                top: -25px;
+                z-index: 0;
+            }
+
+            .palm-tree-left {
+                left: 10px;
+            }
+        }
+
+
+        @media (max-width: 400px) {
+            .palm-tree-left, .palm-tree-right {
+                top: -50px;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="images/sb.png" alt="Logo Left">
+        <img src="images/exp.png" alt="Logo Right">
+    </div>
+    <div class="container">
+        <a href="https://erikrieffel.exprealty.com/index.php?advanced=1&display=stuart&area_keyword=stuart&custombox=&types%5B%5D=1&types%5B%5D=2&types%5B%5D=3&types%5B%5D=4&types%5B%5D=5&types%5B%5D=6&types%5B%5D=8&beds=0&baths=0&min=0&max=100000000&rtype=map#rslt">
+            <div class="box" id="buy">
+                <h1>Buy</h1>
+                <p>Explore Available Properties.</p>
+                <img src="images/palm.png" class="palm-tree-left" alt="Palm Tree Left">
+                <img src="images/palm.png" class="palm-tree-right" alt="Palm Tree Right">
+            </div>
+        </a>
+        <a href="https://erikrieffel.exprealty.com/seller/valuation/">
+            <div class="box" id="sell">
+                <h1>Sell</h1>
+                <p>List Your Property.</p>
+                <img src="images/palm.png" class="palm-tree-left" alt="Palm Tree Left">
+                <img src="images/palm.png" class="palm-tree-right" alt="Palm Tree Right">
+            </div>
+        </a>
+        <a href="resources.html">
+            <div class="box" id="resources">
+                <h1>More</h1>
+                <p>Buyer/Seller Resources.</p>
+                <img src="images/palm.png" class="palm-tree-left" alt="Palm Tree Left">
+                <img src="images/palm.png" class="palm-tree-right" alt="Palm Tree Right">
+            </div>
+        </a>
+    </div>
+    <div class="ball" id="ball"></div>
+    <footer>&copy; 2024 Seabreeze Homes And Land. All rights reserved. <a href="ImageAttributionLinks.html">Images</a></footer> <!--Attributing authors of images and avatars. Thanks.-->
+    <script>
+        const ball = document.getElementById('ball');
+        const boxes = document.querySelectorAll('.box');
+        let currentIndex = 0;
+        const boxPositions = [];
+        let initialVelocityX = 10;
+        let gravity = 1;
+
+        function calculatePositions() {
+            boxes.forEach((box, index) => {
+                const rect = box.getBoundingClientRect();
+                boxPositions[index] = {
+                    x: rect.left + rect.width / 2 - 32,
+                    y: rect.top - 80,
+                };
+            });
+        }
+
+        function createTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            trail.style.left = `${x}px`;
+            trail.style.top = `${y}px`;
+            document.body.appendChild(trail);
+            setTimeout(() => {
+                trail.remove();
+            }, 200);
+        }
+
+        function moveBall() {
+            let posX = 0;
+            let posY = 0;
+            let velocityX = initialVelocityX;
+            let velocityY = 0;
+
+            function updateBall() {
+                if (currentIndex < boxPositions.length) {
+                    velocityY += gravity;
+                    posX += velocityX;
+                    posY += velocityY;
+
+                    if (posY >= boxPositions[currentIndex].y) {
+                        posY = boxPositions[currentIndex].y;
+                        velocityY = -Math.abs(velocityY); // Adjust bounce height
+                        velocityX *= 1; // Adjust horizontal speed
+                        boxes[currentIndex].classList.add('highlight');
+                        setTimeout(() => {
+                            boxes[currentIndex].classList.remove('highlight');
+                        }, 500);
+                        currentIndex++;
+                    }
+
+                    ball.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 4}deg)`;
+                    createTrail(posX + 32, posY + 32);
+                } else {
+                    posX += velocityX;
+                    velocityY += gravity;
+                    posY += velocityY;
+                    ball.style.transform = `translate(${posX}px, ${posY}px) rotate(${posX * 4}deg)`;
+                    createTrail(posX + 32, posY + 32);
+                    if (posX > window.innerWidth || posY > window.innerHeight) {
+                        clearInterval(ballInterval);
+                        ball.style.display = 'none';
+                    }
+                }
+            }
+
+            ballInterval = setInterval(updateBall, 20);
+        }
+
+        function setCookie(name, value, hours) {
+            const d = new Date();
+            d.setTime(d.getTime() + (hours * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        function getCookie(name) {
+            const decodedCookie = decodeURIComponent(document.cookie);
+            const ca = decodedCookie.split(';');
+            name = name + "=";
+            for (let i = 0; ca.length > i; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) === 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function checkFirstVisit() {
+            const visited = getCookie("visited");
+            if (visited !== "yes") {
+                setCookie("visited", "yes", 1);
+                return true;
+            }
+            return false;
+        }
+
+        function highlightBoxesSequentially() {
+            let index = 0;
+            const highlightInterval = setInterval(() => {
+                if (index < boxes.length) {
+                    boxes[index].classList.add('highlight');
+                    setTimeout(() => {
+                        boxes[index].classList.remove('highlight');
+                    }, 1000); // Duration for which the box remains highlighted
+                    index++;
+                } else {
+                    clearInterval(highlightInterval);
+                }
+            }, 1000); // Interval between each box highlight
+        }
+
+    //new onload ball system to adjust ball velocity and gravity based on screen width
+        window.onload = () => {
+        if (window.innerWidth >= 1800) {
+            gravity = 1.25;
+            initialVelocityX = 20;
+        } else if (window.innerWidth <= 1600 && window.innerWidth > 1380) {
+            gravity = 0.7;
+            initialVelocityX = 12;
+        } else if (window.innerWidth <= 1380 && window.innerWidth > 1048) {
+            gravity = 0.5;
+            initialVelocityX = 9;
+        } else if (window.innerWidth <= 1048 && window.innerWidth > 768) {
+            gravity = .9;
+            initialVelocityX = 5;
+        } else if (window.innerWidth <= 768) {
+            gravity = 0;
+            initialVelocityX = 0;
+            highlightBoxesSequentially();
+            document.querySelector('.ball').style.display = 'none';
+        } calculatePositions();
+
+            if (checkFirstVisit()) {
+                if (window.innerWidth > 768) {
+                    calculatePositions();
+                    moveBall();
+                } else {
+                    highlightBoxesSequentially();
+                }
+            } else {
+                document.querySelector('.ball').style.display = 'none';
+                document.querySelectorAll('.trail').forEach(trail => trail.style.display = 'none');
+            }
+        }
+
+        boxes.forEach(box => {
+            box.addEventListener('mouseover', () => {
+                box.classList.add('hover');
+            });
+
+            box.addEventListener('mouseout', () => {
+                box.classList.remove('hover');
+            });
+
+            box.addEventListener('click', () => {
+                window.location.href = "#";
+            });
+        });
+
+        document.querySelector('.container').addEventListener('click', () => {
+            window.location.href = "#";
+        });
+    </script>
+</body>
+</html>
